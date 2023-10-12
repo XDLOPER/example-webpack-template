@@ -1,3 +1,11 @@
-$bg-color:#eee;
+@import './reset.css';
+@import './variables.scss';
 
-body{background:$bg-color;}
+    body{
+        background:$bg-color;
+        width: 100%;
+        height:100vh;
+        overflow-x: hidden;
+    }
+
+

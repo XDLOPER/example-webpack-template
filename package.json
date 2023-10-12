@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./MY_APP_MG/config/webpack/webpack.config.dev.js",
-    "build": "webpack --config ./MY_APP_MG/config/webpack/webpack.config.prod.js"
+    "dev": "webpack-dev-server --config ./__X-APP-Q__/config/webpack/webpack.config.dev.js",
+    "build": "webpack --config ./__X-APP-Q__/config/webpack/webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,8 @@
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
+    "@types/webpack-dev-server": "^4.7.2",
+    "@types/webpack-merge": "^5.0.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "dotenv": "^16.0.3",
@@ -23,6 +25,7 @@
     "postcss-loader": "^7.2.4",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
+    "url-loader": "^4.1.1",
     "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.3",
