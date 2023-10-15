@@ -1,10 +1,13 @@
-const path = require('path');
-const webpackMerge = require('webpack-merge');
-const WEBPACK_MAIN_CONFIG = require('./webpack.config.main');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+import { Configuration } from 'webpack';
+import {merge} from 'webpack-merge';
+import {pluginConfig} from './config/plugin';
+
+import path from 'path';
+import WEBPACK_MAIN_CONFIG from './webpack.config.main';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
 
 
-const getWebpackConfig = (pluginConfig) => {
+const getWebpackConfig = (pluginConfig : any[]) : Configuration => {
      return {
           mode: 'production',
           plugins:[
@@ -27,9 +30,9 @@ const getWebpackConfig = (pluginConfig) => {
      }
 }
 
-
-module.exports = ()=>{
-     const pluginConfig = require('./config/plugin.js');
+const configExport = (env: any, args: any) => {
      const mergedConfig = getWebpackConfig(pluginConfig);
-     return webpackMerge.merge(WEBPACK_MAIN_CONFIG,mergedConfig);
-}
+     return merge(WEBPACK_MAIN_CONFIG,mergedConfig);
+};
+
+export default configExport;

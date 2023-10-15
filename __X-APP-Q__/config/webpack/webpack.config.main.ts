@@ -1,10 +1,9 @@
 // required importants
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const dotenv = require('dotenv');
-const path = require('path');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import Webpack,{Configuration} from 'webpack';
 
-const pluginConfig = require('./config/plugin.js')
-
+import dotenv from 'dotenv';
+import path from 'path';
 
 // CONSTANT
 const ENVPATH = path.resolve(__dirname,'..','dotenv', '.env');
@@ -13,10 +12,15 @@ const ENVPATH = path.resolve(__dirname,'..','dotenv', '.env');
 dotenv.config({path:ENVPATH});
 
 /* eğer react içi kullanmak istiyorsan react ön yükleyici gerekir devDepend olarak kurulu tek yapman gereken '@babel/preset-react' bunu js yerindeki presets arrayine eklemek */ 
-const config = { 
+const config : Configuration = { 
      entry:path.join(__dirname,'..','..','..','src/index.js'),
      module:{
           rules:[
+               {
+                    test: /\.ts$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/,
+               },
                {
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
@@ -51,9 +55,12 @@ const config = {
 
                   }
           ]
-     }
+     },
+     resolve: {
+          extensions: ['.ts', '.js'],
+     },
 }
 
 
 
-module.exports = config
+export default config
