@@ -1,11 +1,11 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Configuration, DefinePlugin } from 'webpack';
+import webpack from 'webpack';
 
-export const pluginConfig: Configuration['plugins'] = [
+export const pluginConfig: webpack.Configuration['plugins'] = [
   new MiniCssExtractPlugin({
     filename: 'style/main.[contenthash].css',
   }),
-  new DefinePlugin({
+  new webpack.DefinePlugin({
     'process.env': JSON.stringify(process.env),
   }),
 ];

@@ -1,13 +1,12 @@
 {
   "name": "exampletree",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node --loader ts-node/esm node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.dev.ts",
-    "build": "ts-node --transpile-only node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.prod.ts",
+    "dev": "node --loader ts-node/esm node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.dev.ts",
+    "build": "node --loader ts-node/esm node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.prod.ts",
     "buildJS": "webpack --config ./dist/typescript/__X-APP-Q__/config/webpack/webpack.config.prod.js"
-
   },
   "author": "y.yasir.k",
   "license": "ISC",
@@ -17,6 +16,7 @@
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
+    "@types/webpack": "^5.28.3",
     "@types/webpack-dev-server": "^4.7.2",
     "@types/webpack-merge": "^5.0.0",
     "babel-loader": "^9.1.2",
