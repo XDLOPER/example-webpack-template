@@ -17,16 +17,16 @@
           inject: 'body',
           hash: true,
           title: process.env.X_NAME,
-          favicon: path.join('src/public/icons/favicon.ico'),
-          template: path.join('src/public/index.html'),
+          favicon: path.resolve('src/public/icons/favicon.ico'),
+          template: path.resolve('src/public/index.html'),
           filename: path.join('index.html'),
           minify: false,
         }),
       ],
       output: {
         path: path.resolve('dist/assets'),
-        filename: 'js/main.js',
-        assetModuleFilename: 'images/[name][hash][ext][query]',
+        filename: 'script/main.js',
+        assetModuleFilename: 'images/[name][hash][query]',
       },
       /*
       devServer: {

@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // CONSTANT
-const ENVPATH = path.resolve('__X-APP-Q__,','config','dotenv', '.env');
+const ENVPATH = path.resolve('__X-APP-Q__','config','dotenv', '.env');
 
 //setup
 dotenv.config({path:ENVPATH});
@@ -31,7 +31,24 @@ const config : Webpack.Configuration = {
                        }
                     }
                },
-               {                
+               {
+                    test: /\.ejs$/,
+                    loader: 'ejs-render-loader',
+                    exclude: /node_modules/,
+                    options: {
+                         esModule: false, // esModule seçeneği false olmalıdır
+                         variable: 'data', // bir değişken adı belirtin
+                    },
+               },
+               {
+                    test: /\.html$/,
+                    use: [
+                      {
+                        loader: 'html-loader',
+                      }
+                    ]
+               },       
+               {  
                     test: /\.(s[ac]|c)ss$/i,                
                     include: path.resolve('src/styles/global.scss'),
                     exclude: /node_modules/,

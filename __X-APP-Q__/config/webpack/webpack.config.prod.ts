@@ -21,13 +21,13 @@ const getWebpackConfig = (pluginConfig : any /*webpack.Configuration['plugins']*
                     favicon: path.join('src/public/icons/favicon.ico'),
                     template: path.join('src/public/index.html'),  
                     filename: path.join('..','public','index.html'),
-                    minify: false
+                    minify: true
                })
           ],
           output:{
                path:path.resolve('dist/assets'),
-               filename: 'js/main.[hash].js',
-               assetModuleFilename:'images/[name][hash][ext][query]'
+               filename: 'script/main.[hash].js',
+               assetModuleFilename:'media/images/[name][hash][ext][query]'
           }
      }
 }
