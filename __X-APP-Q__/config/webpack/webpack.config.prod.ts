@@ -20,7 +20,7 @@ const getWebpackConfig = (pluginConfig : any /*webpack.Configuration['plugins']*
                     title:process.env.X_NAME,
                     favicon: path.join('src/public/icons/favicon.ico'),
                     template: path.join('src/public/index.html'),  
-                    filename: path.join('src','public','index.html'),
+                    filename: path.join('..','public','index.html'),
                     minify: false
                })
           ],

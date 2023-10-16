@@ -11,15 +11,6 @@
     return {
       watch: true,
       mode: 'development',
-      devServer: {
-        static: {
-          directory: path.join(__dirname, 'public'),
-        },
-        port: 1000,
-        hot: true,
-        open: true,
-        
-      },
       plugins: [
         ...pluginConfig,
         new HtmlWebPackPlugin({
@@ -37,13 +28,21 @@
         filename: 'js/main.js',
         assetModuleFilename: 'images/[name][hash][ext][query]',
       },
+      /*
+      devServer: {
+        static: {
+          directory: path.join('public'),
+        },
+        port: 1000,
+        hot: true,
+        open: true,
+      },
+      */
     };
   };
 
-  const configExport = (env: any, args: any) => {
 
+  export default (env: any, args: any)=>{
     const mergedConfig: webpack.Configuration = getWebpackConfig(pluginConfig);
     return merge(WEBPACK_MAIN_CONFIG, mergedConfig);
   };
-
-  export default configExport;
