@@ -1,19 +1,19 @@
 // required importants
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import Webpack from 'webpack';
-
 import dotenv from 'dotenv';
 import path from 'path';
 
 // CONSTANT
 const ENVPATH = path.resolve('__X-APP-Q__','config','dotenv', '.env');
+const inputPath = path.resolve('src/index.js');
 
 //setup
 dotenv.config({path:ENVPATH});
 
 /* eğer react içi kullanmak istiyorsan react ön yükleyici gerekir devDepend olarak kurulu tek yapman gereken '@babel/preset-react' bunu js yerindeki presets arrayine eklemek */ 
 const config : Webpack.Configuration = { 
-     entry:path.resolve('src/index.js'),
+     entry:inputPath,
      module:{
           rules:[
                {
@@ -45,7 +45,16 @@ const config : Webpack.Configuration = {
                     use: [
                       {
                         loader: 'html-loader',
+                      },
+                      /*
+                      {
+                        loader: 'ejs-loader',
+                        options: {
+                              esModule: true, // esModule seçeneği devre dışı bırakıldı
+                              variable: 'data', // variable seçeneği eklenerek 'with' ifadeleri engelleniyor
+                         },
                       }
+                    */
                     ]
                },       
                {  
