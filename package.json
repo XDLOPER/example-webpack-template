@@ -1,11 +1,12 @@
 {
   "name": "exampletree",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "node --loader ts-node/esm node_modules/webpack-dev-server/bin/webpack-dev-server --config ./__X-APP-Q__/config/webpack/webpack.config.dev.ts",
-    "build": "node --loader ts-node/esm node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.prod.ts"
+    "build": "node --loader ts-node/esm node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.prod.ts",
+    "test": "nodemon ./test/index.js"
   },
   "author": "y.yasir.k",
   "license": "ISC",
@@ -19,13 +20,19 @@
     "@types/webpack-dev-server": "^4.7.2",
     "@types/webpack-merge": "^5.0.0",
     "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "dotenv": "^16.0.3",
+    "ejs-compiled-loader": "^3.1.0",
     "ejs-loader": "^0.5.0",
+    "ejs-plain-loader": "^1.4.1",
+    "ejs-webpack-loader": "^2.2.2",
     "file-loader": "^6.2.0",
+    "handlebars-loader": "^1.7.3",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.6",
+    "nodemon": "^3.0.1",
     "postcss-loader": "^7.2.4",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
@@ -38,6 +45,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "ejs": "^3.1.9",
+    "handlebars": "^4.7.8",
+    "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

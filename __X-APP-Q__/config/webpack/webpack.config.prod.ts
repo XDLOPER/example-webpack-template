@@ -1,31 +1,21 @@
 import webpack from 'webpack';
 import {merge} from 'webpack-merge';
-import {pluginConfig} from './config/plugin.js';
+import {pluginConfig} from './plugin/plugins.js';
 
 import path from 'path';
 import WEBPACK_MAIN_CONFIG from './webpack.config.main.js';
-import HtmlWebPackPlugin from 'html-webpack-plugin';
 
 
 // plugin config nedense tip uyuşmazlığı tespit ediyor çözmek gerek 
 const getWebpackConfig = (pluginConfig : any /*webpack.Configuration['plugins']*/) : webpack.Configuration => {
      return {
-          watch: true,
+          //watch: true,
           mode: 'production',
           plugins:[
                ...pluginConfig,
-               new HtmlWebPackPlugin({
-                    inject: 'body',
-                    hash: true,
-                    title:process.env.X_NAME,
-                    favicon: path.join('src/public/icons/favicon.ico'),
-                    template: path.join('src/public/index.html'),  
-                    filename: path.join('..','public','index.html'),
-                    minify: true
-               })
           ],
           output:{
-               path:path.resolve('dist/assets'),
+               path:path.resolve('dist/public'),
                filename: 'script/main.[hash].js',
                assetModuleFilename:'media/images/[name][hash][ext][query]'
           }
