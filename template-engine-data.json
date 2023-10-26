@@ -1,0 +1,9 @@
+{
+    "headerText":"header",
+    "main":[
+        {"name":"ali"},
+        {"name":"memo"},
+        {"name":"hasan"}
+    ],
+    "footerText":"footer"
+}

@@ -22,6 +22,8 @@
 
 - Script taglar için varsayılan dosya ismi index'tir index dosyaları dışındaki dosyalara script'ler inject edilmez.
 
+- Ejs Şablon motorunda include işlemlerinde include('./example') değil include ./example diye yazılmalıdır.   
+
   
 	
 

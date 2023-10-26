@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>handlebars</title>
+    <title>ejs</title>
 </head>
-<body id="template">
+<body>
 
-  {{> ../container/header}}
-    {{> ../container/main}}
-  {{> ../container/footer}}
+  
+  <% include ../container/header %>
+  <% include ../container/main %>
+  <% include ../container/footer %>
+
+  
 
 </body>
 </html>
