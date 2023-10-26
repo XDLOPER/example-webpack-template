@@ -30,7 +30,7 @@ const config : Webpack.Configuration = {
                     }
                },
                {
-                    test: /\.hbs$/,
+                    test: /\.(hbs|handlebars)$/,
                     use: [
                       {
                         loader: 'handlebars-loader',

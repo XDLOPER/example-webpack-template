@@ -5,7 +5,8 @@ import HtmlWebPackPlugin from 'html-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 
 
-import webFileFindEngine,{changeExtensions} from './webpack-html-web-plugin.js';
+import webFileFindEngine,{changeExtensions} from '../utils/web-file-find.js';
+import handlebars from '../../../../handlebars-variables.json' assert { type: 'json' };
 
 
 // CONSTANTS
@@ -17,13 +18,15 @@ webFileFindEngine(__WEB_FILE_PATH__).forEach((webFilePath)=>{
 
   const htmlWebPackPlugin = new HtmlWebPackPlugin({
     inject: 'body',
-    hash: true,
     title: process.env.X_NAME,
     favicon:webFilePath.includes('index') === true ? path.resolve(__WEB_FILE_PATH__,'icons/favicon.ico') : null,
     template:path.resolve(__WEB_FILE_PATH__,webFilePath),
+    templateParameters:handlebars,
     filename: path.join(changeExtensions(webFilePath)),
+    excludeChunks:webFilePath.includes('index') === true ? [] : ['main'],
+    hash: true,
     minify: false,
-    excludeChunks:webFilePath.includes('index') === true ? [] : ['main']
+
   })
 
   HtmlWebPackPluginArray.push(htmlWebPackPlugin)

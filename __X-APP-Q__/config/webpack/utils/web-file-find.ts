@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import {findExt} from '../utils/findExt.js';
+import {findExt} from './findExt.js';
 
 const supportFileExtensions:string[] = ['html', 'ejs', 'hbs'];
 

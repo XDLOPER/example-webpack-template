@@ -1,23 +1,15 @@
 // js
-import Handlebars from "handlebars";
+import Handlebars from "handlebars" ;
+
 
 // styles
 import "../src/styles/global.scss";
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Kodunuz burada çalıştırılır
-  });
 
-const source = document.getElementById("template").innerHTML;
-const template = Handlebars.compile(source);
+let template = document.getElementById('template')
 
-const data = {
-  title: "Başlık",
-  content: "Handlebars ile sayfa oluşturmak eğlencelidir!",
-  headerText: "Merhaba Handlebars",
-  footerText: "Footer içeriği burada.",
-};
+let html = template.innerHTML
 
-document.getElementById("template").innerHTML = template(data);
+const compiledTemplate = Handlebars.compile(html)
 
-
+document.body.innerHTML = compiledTemplate({headerText:'headerrrrr',footerText:'footerrrrr'});

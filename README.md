@@ -33,17 +33,17 @@
 
   
  Genel webpack klasör Ağacı 
-📦webpack
- ┣ 📂constants
- ┃ ┗ 📜index.ts
- ┣ 📂plugin
- ┃ ┣ 📜plugins.ts
- ┃ ┗ 📜webpack-html-web-plugin.ts
- ┣ 📂utils
- ┃ ┗ 📜findExt.ts
- ┣ 📜webpack.config.dev.ts
- ┣ 📜webpack.config.main.ts
- ┗ 📜webpack.config.prod.ts
+    📦webpack
+    ┣ 📂constants
+    ┃ ┗ 📜index.ts
+    ┣ 📂plugin
+    ┃ ┣ 📜plugins.ts
+    ┃ ┗ 📜webpack-html-web-plugin.ts
+    ┣ 📂utils
+    ┃ ┗ 📜findExt.ts
+    ┣ 📜webpack.config.dev.ts
+    ┣ 📜webpack.config.main.ts
+    ┗ 📜webpack.config.prod.ts
   
 
 hazırlayan: **y.yasir.k**

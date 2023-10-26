@@ -12,6 +12,7 @@
   const getWebpackConfig = (pluginConfig: any /*webpack.Configuration['plugins']*/) : webpack.Configuration  => {
     return {
       watch: true,
+      devtool: "source-map",
       mode: 'development',
       plugins: [
         ...pluginConfig,
