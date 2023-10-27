@@ -3,6 +3,7 @@ import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 
 import webFileFindEngine,{changeExtensions} from '../utils/web-file-find.js';
@@ -10,7 +11,7 @@ import templateEngineData from '../../../../template-engine-data.json' assert { 
 
 
 // CONSTANTS
-import {__WEB_FILE_PATH__} from '../constants/index.js'
+import {__WEB_FILE_PATH__,__SOURCE__} from '../constants/index.js'
 const HtmlWebPackPluginArray = []
 
 
@@ -36,6 +37,16 @@ export const pluginConfig: webpack.Configuration['plugins'] = [
 
   // for before file delete 
   new CleanWebpackPlugin(),
+
+  /* for copy the file - 
+  new CopyWebpackPlugin({
+    patterns: [
+      { from: path.resolve(__SOURCE__,'public/icons'), to: "icons" }
+    ],
+    options: {
+      concurrency: 100,
+    },
+  }), */
 
   // for css file extract
   new MiniCssExtractPlugin({

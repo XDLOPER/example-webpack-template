@@ -81,12 +81,7 @@ const config : Webpack.Configuration = {
                {
                     test: /\.geojson$/,
                     type: 'json',
-               },
-               {
-                    test: /\.(png|jpg|jpeg|gif)$/i,
-                    type:'asset/resource',
-
-                  }
+               }
           ]
      },
      /* resolve etkinliği tam kapsamlı çalışmıyor düzeltilecek

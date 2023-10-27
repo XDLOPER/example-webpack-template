@@ -20,7 +20,7 @@
       output: {
         path: path.resolve('dist/assets'),
         filename: 'script/main.js',
-        assetModuleFilename: 'images/[name][hash][query]',
+        assetModuleFilename: 'media/[name][hash][query]',
       },
       /*
       devServer: {

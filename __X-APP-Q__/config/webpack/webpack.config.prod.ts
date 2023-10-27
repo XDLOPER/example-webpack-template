@@ -17,7 +17,7 @@ const getWebpackConfig = (pluginConfig : any /*webpack.Configuration['plugins']*
           output:{
                path:path.resolve('dist/public'),
                filename: 'script/main.[hash].js',
-               assetModuleFilename:'media/images/[name][hash][ext][query]'
+               assetModuleFilename:'media/[name][hash][ext][query]'
           }
      }
 }
