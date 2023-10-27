@@ -1,17 +1,13 @@
 // required importants
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import Webpack from 'webpack';
-import dotenv from 'dotenv';
 
 // CONSTANT
-import { __ENV_PATH__,__INPUT_PATH__,__STYLE_PATH__ } from './constants/index.js'
-
-// environment variables setup 
-dotenv.config({path:__ENV_PATH__});
+import {__MAIN__, __ENV_PATH__,__SUPPORT_EXT_ARR__,__INPUT_PATH__, __MAIN_SOURCE__, __INPUT__SEC_PATH__ } from './constants/index.js'
 
 /* eğer react içi kullanmak istiyorsan react ön yükleyici gerekir devDepend olarak kurulu tek yapman gereken '@babel/preset-react' bunu js yerindeki presets arrayine eklemek */ 
 const config : Webpack.Configuration = { 
-     entry:__INPUT_PATH__,
+     entry:__INPUT_PATH__ ? __INPUT_PATH__ : __INPUT__SEC_PATH__,
      module:{
           rules:[
                {
@@ -20,7 +16,10 @@ const config : Webpack.Configuration = {
                     exclude: /node_modules/,
                },
                {
-                    test: /\.(js|jsx)$/,
+                    test: /\.(m?c?js|jsx)$/,
+                    resolve: {
+                         fullySpecified: false
+                    },
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
@@ -66,7 +65,6 @@ const config : Webpack.Configuration = {
                },       
                {  
                     test: /\.(s[ac]|c)ss$/i,                
-                    include: __STYLE_PATH__,
                     exclude: /node_modules/,
                     use: [
                     {                    
@@ -84,13 +82,15 @@ const config : Webpack.Configuration = {
                }
           ]
      },
-     /* resolve etkinliği tam kapsamlı çalışmıyor düzeltilecek
-     
+
      resolve: {
-          extensions: ['.ts', '.js'],
+          extensions:__SUPPORT_EXT_ARR__,
+          alias:{
+               '@':__MAIN__
+          },
      },
 
-     */
+     
 }
 
 

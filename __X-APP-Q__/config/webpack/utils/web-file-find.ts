@@ -11,15 +11,14 @@ export const changeExtensions = (data:string)=>{
 
 const webFileFindEngine = (folderPath:string) : string[] => {
     try {
-        const resolvePath:string = path.resolve(folderPath);
-        const files:string[] = fs.readdirSync(resolvePath);
+        const files:string[] = fs.readdirSync(folderPath);
 
         const fullFileExtension:string[] = supportFileExtensions.map(ext => '.' + ext);
 
         const filteredFiles:string[] = [];
 
         files.forEach(file => {
-            const filePath:string = path.join(resolvePath, file);
+            const filePath:string = path.join(folderPath, file);
             const isDirectory:boolean = fs.statSync(filePath).isDirectory();
 
             if (isDirectory) {

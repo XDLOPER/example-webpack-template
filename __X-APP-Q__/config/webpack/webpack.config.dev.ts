@@ -1,14 +1,13 @@
-
   import webpack from 'webpack';
-  import path from 'path';
   import {merge} from 'webpack-merge';
 
   import WEBPACK_MAIN_CONFIG from './webpack.config.main.js';
   import {pluginConfig} from './plugin/plugins.js';
+  import {__OUTPUT_DIST_DEV__} from './constants/index.js';
 
 
 
-
+  // plugin config nedense tip uyuşmazlığı tespit ediyor çözmek gerek 
   const getWebpackConfig = (pluginConfig: any /*webpack.Configuration['plugins']*/) : webpack.Configuration  => {
     return {
       watch: true,
@@ -18,7 +17,7 @@
         ...pluginConfig,
       ],
       output: {
-        path: path.resolve('dist/assets'),
+        path: __OUTPUT_DIST_DEV__,
         filename: 'script/main.js',
         assetModuleFilename: 'media/[name][hash][query]',
       },

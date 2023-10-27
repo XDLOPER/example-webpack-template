@@ -2,8 +2,8 @@ import webpack from 'webpack';
 import {merge} from 'webpack-merge';
 import {pluginConfig} from './plugin/plugins.js';
 
-import path from 'path';
 import WEBPACK_MAIN_CONFIG from './webpack.config.main.js';
+import {__OUTPUT_DIST_PROD__} from './constants/index.js';
 
 
 // plugin config nedense tip uyuşmazlığı tespit ediyor çözmek gerek 
@@ -15,7 +15,7 @@ const getWebpackConfig = (pluginConfig : any /*webpack.Configuration['plugins']*
                ...pluginConfig,
           ],
           output:{
-               path:path.resolve('dist/public'),
+               path:__OUTPUT_DIST_PROD__,
                filename: 'script/main.[hash].js',
                assetModuleFilename:'media/[name][hash][ext][query]'
           }

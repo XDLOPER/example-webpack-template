@@ -3,24 +3,28 @@ import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-
+// import CopyWebpackPlugin from 'copy-webpack-plugin';
+import dotenv from 'dotenv';
 
 import webFileFindEngine,{changeExtensions} from '../utils/web-file-find.js';
-import templateEngineData from '../../../../template-engine-data.json' assert { type: 'json' };
-
+import templateEngineData from '../constants/data/template-engine-data.json' assert { type: 'json' };
 
 // CONSTANTS
-import {__WEB_FILE_PATH__,__SOURCE__} from '../constants/index.js'
-const HtmlWebPackPluginArray = []
+import {__WEB_FILE_PATH__,__SOURCE__,__ENV_PATH__,__WEB_PLUGIN_FAVICON__} from '../constants/index.js'
 
+// environment variables setup 
+dotenv.config({path:__ENV_PATH__});
+
+////////////////////////////////////////////////////////////////////////
+
+const HtmlWebPackPluginArray = []
 
 webFileFindEngine(__WEB_FILE_PATH__).forEach((webFilePath)=>{
 
   const htmlWebPackPlugin = new HtmlWebPackPlugin({
     inject: 'body',
     title: process.env.X_NAME,
-    favicon:webFilePath.includes('index') === true ? path.resolve(__WEB_FILE_PATH__,'icons/favicon.ico') : null,
+    favicon:webFilePath.includes('index') === true ? __WEB_PLUGIN_FAVICON__ : null,
     template:path.resolve(__WEB_FILE_PATH__,webFilePath),
     templateParameters:templateEngineData,
     filename: path.join(changeExtensions(webFilePath)),
@@ -60,7 +64,7 @@ export const pluginConfig: webpack.Configuration['plugins'] = [
 
   // for webpack import alias
   new webpack.ProvidePlugin({
-    'x':'jquery',
+    'x':'myPackage', // optional
     $:'jquery',
   }),
   
