@@ -5,17 +5,32 @@ import HtmlWebPackPlugin from 'html-webpack-plugin';
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';
 // import CopyWebpackPlugin from 'copy-webpack-plugin';
 import dotenv from 'dotenv';
+import fs from 'fs'
 
 import webFileFindEngine,{changeExtensions} from '../utils/web-file-find.js';
-import templateEngineData from '../constants/data/template-engine-data.json' assert { type: 'json' };
 
 // CONSTANTS
-import {__WEB_FILE_PATH__,__SOURCE__,__ENV_PATH__,__WEB_PLUGIN_FAVICON__} from '../constants/index.js'
+import {__WEB_FILE_PATH__,__SOURCE__,__ENV_PATH__,__WEB_PLUGIN_TEMPALTE_DATA__,__WEB_PLUGIN_FAVICON__} from '../constants/index.js' 
+let templateEngineData = null;
 
 // environment variables setup 
-dotenv.config({path:__ENV_PATH__});
+if(__ENV_PATH__ !== null){
+  dotenv.config({path:__ENV_PATH__});
+}
 
 ////////////////////////////////////////////////////////////////////////
+
+if(__WEB_PLUGIN_TEMPALTE_DATA__ === null){
+  console.log('template data json not found!')
+}else{
+  try {
+    templateEngineData = fs.readFileSync(__WEB_PLUGIN_TEMPALTE_DATA__, 'utf8');
+  
+  } catch (err) {
+    console.error('template data json not read! code: ', err);
+  }
+  
+}
 
 const HtmlWebPackPluginArray = []
 
@@ -58,9 +73,9 @@ export const pluginConfig: webpack.Configuration['plugins'] = [
   }),
 
   // for webpack global varibles 
-  new webpack.DefinePlugin({
+  __ENV_PATH__ !== null ?  new webpack.DefinePlugin({
     'process.env': JSON.stringify(process.env),
-  }),
+  }) : null,
 
   // for webpack import alias
   new webpack.ProvidePlugin({

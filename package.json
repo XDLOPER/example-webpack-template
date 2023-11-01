@@ -1,8 +1,8 @@
 {
-  "name": "my-webpack-conf",
-  "version": "2.4.0",
+  "name": "web-project-tmp",
+  "version": "2.4.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "node --loader ts-node/esm node_modules/webpack-dev-server/bin/webpack-dev-server --config ./__X-APP-Q__/config/webpack/webpack.config.dev.ts",
     "build": "node --loader ts-node/esm node_modules/webpack-cli/bin/cli.js --config ./__X-APP-Q__/config/webpack/webpack.config.prod.ts",

@@ -3,11 +3,11 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import Webpack from 'webpack';
 
 // CONSTANT
-import {__MAIN__, __ENV_PATH__,__SUPPORT_EXT_ARR__,__INPUT_PATH__, __MAIN_SOURCE__, __INPUT__SEC_PATH__ } from './constants/index.js'
+import {__MAIN__, __ENV_PATH__,__SUPPORT_EXT_ARR__,__INPUT_PATH__, __MAIN_SOURCE__, __INPUT_SEC_PATH__ } from './constants/index.js'
 
 /* eğer react içi kullanmak istiyorsan react ön yükleyici gerekir devDepend olarak kurulu tek yapman gereken '@babel/preset-react' bunu js yerindeki presets arrayine eklemek */ 
 const config : Webpack.Configuration = { 
-     entry:__INPUT_PATH__ ? __INPUT_PATH__ : __INPUT__SEC_PATH__,
+     entry:__INPUT_PATH__ ? __INPUT_PATH__ : __INPUT_SEC_PATH__,
      module:{
           rules:[
                {
